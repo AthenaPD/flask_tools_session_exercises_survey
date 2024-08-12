@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block h1 %}Fill out the form below to add a new survey.{% endblock %}
+{% block content %}
+<form action="/create_survey" method="POST" id="add-survey-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="A brief name for the survey. No space please.">
+    <br>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" placeholder="A descriptive title for the survey">
+    <br>
+    <label for="instruction">Instruction:</label>
+    <br>
+    <textarea name="instruction" id="instruction" rows="8" cols="100"></textarea>
+    <br>
+    <fieldset id="question-group1">
+        <legend>Question 1</legend>
+        <label for="q1">Question:</label>
+        <input type="text" name="q1" id="q1">
+        <br>
+        <label for="choice1">Choice:</label>
+        <input type="text" name="choice1" id="choice1" placeholder="ie. Yes, No. Choices must be separated by commas. If not provided, default values are Yes and No.">
+        <br>
+        <label for="comment1">Allow comments?</label>
+        <input type="checkbox" name="comment1" id="comment1">
+    </fieldset>
+    <button id="add-question" type="button">Add a question</button>
+    <br>
+    <button type="submit">Add this survey!</button>
+</form>
+{% endblock %}

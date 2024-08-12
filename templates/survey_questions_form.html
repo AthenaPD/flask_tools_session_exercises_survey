@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Question {{id+1}}{% endblock %}
+{% block h1 %}Question {{id+1}}{% endblock %}
+{% block content %}
+<form action="/{{survey_name}}/answer/{{id}}" method="POST">
+    <fieldset>
+        <legend>{{question.question}}</legend>
+        {% for choice in question.choices %}
+            <input type="radio" id="{{choice}}" name="choice" value="{{choice}}">
+            <label for="{{choice}}">{{choice}}</label>
+            <br />
+        {% endfor %}
+        {% if question.allow_text %}
+            <label for="comment">Comment:</label>
+            <br>
+            <textarea id="comment" name="comment" rows="8" cols="100"></textarea>
+            <br />
+        {% endif %}
+        {% if id > 0 %}
+            <button type="submit" formaction="/{{survey_name}}/questions/{{id-1}}" formmethod="GET">Previous</button>
+        {% endif %}
+        <button type="submit">Submit</button>
+        <button type="submit">Skip</button>
+    </fieldset>
+</form>
+{% endblock %}

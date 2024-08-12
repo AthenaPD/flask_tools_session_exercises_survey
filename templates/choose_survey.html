@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Choose Survey{% endblock %}
+{% block h1 %}Choose a survey:{% endblock %}
+{% block content %}
+<div>
+<form action="/start_survey">
+    <fieldset>
+        <legend>Available Surveys</legend>
+        {% for name, survey in surveys.items() %}
+            <input type="radio" id="{{name}}" name="survey" value="{{name}}">
+            <label for="{{name}}">{{name}}</label>
+            <br />
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </fieldset>
+</form>
+</div>
+{% endblock %}

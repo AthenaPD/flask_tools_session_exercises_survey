@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Question {{id}}{% endblock %}
+{% block h1 %}Thank you for taking the survey!{% endblock %}
+{% block content %}
+<div>
+{% for i in range(questions|length) %}
+    <p>
+        <b>{{questions[i].question}}</b>
+        {{ans[i]}}
+    </p>
+{% endfor %}
+</div>
+{% endblock %}

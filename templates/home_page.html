@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block h1 %}Choose or add a survey to begin:{% endblock %}
+{% block content %}
+<form action="/">
+    <button formaction="/choose_survey" type="submit">Choose a survey</button>
+    <button formaction="/add_survey" type="submit">Add a new survey</button>
+</form>
+{% endblock %}
